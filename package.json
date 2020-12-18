@@ -1,6 +1,7 @@
 {
   "name": "noiser",
   "version": "0.1.0",
+  "description": "A noise image generator",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
