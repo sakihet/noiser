@@ -25,6 +25,8 @@
       @input="width = $event"
     />
     <AppCanvas
+      :color="color"
+      :threshold="parseInt(threshold)"
       :height="parseInt(height)"
       :width="parseInt(width)"
     />
