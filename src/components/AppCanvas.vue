@@ -1,10 +1,12 @@
 <template>
-  <canvas
-    :height="height"
-    :width="width"
-    :threshold="threshold"
-    :color="color"
-  ></canvas>
+  <div>
+    <canvas
+      :height="height"
+      :width="width"
+      :threshold="threshold"
+      :color="color"
+    ></canvas>
+  </div>
 </template>
 
 <script>
@@ -16,6 +18,7 @@ export default {
     threshold: Number,
     color: String
   },
+  emits: ['updated'],
   methods: {
     myrand (min, max){
       let r = Math.floor(Math.random() * (max - min) + 1)
@@ -23,7 +26,7 @@ export default {
       return r
     },
     draw () {
-      const ctx = this.$el.getContext('2d')
+      const ctx = this.$el.childNodes[0].getContext('2d')
       ctx.fillStyle = this.color
       const w = this.width
       const h = this.height
@@ -42,13 +45,19 @@ export default {
         outputData[i+3] = 255
       }
       ctx.putImageData(outputImageData, 0, 0)
+    },
+    emitDataURL () {
+      const dataURL = this.$el.childNodes[0].toDataURL('image/png')
+      this.$emit('updated', dataURL)
     }
   },
   mounted () {
     this.draw()
+    this.emitDataURL()
   },
   updated () {
     this.draw()
+    this.emitDataURL()
   }
 }
 </script>
