@@ -5,11 +5,23 @@
       :headerDescription="description"
     />
     <AppInput
+      :value="color"
+      inputType="color"
+      @input="color = $event"
+    />
+    <AppInput
+      :value="threshold"
+      inputType="range"
+      @input="threshold = $event"
+    />
+    <AppInput
       :value="height"
+      inputType="number"
       @input="height = $event"
     />
     <AppInput
       :value="width"
+      inputType="number"
       @input="width = $event"
     />
     <AppCanvas
@@ -41,6 +53,8 @@ export default {
       name: name[0].toUpperCase() + name.slice(1),
       description: description,
       version: version,
+      color: "#1abc9c",
+      threshold: "32",
       height: "256",
       width: "256"
     }
