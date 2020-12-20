@@ -1,4 +1,6 @@
-# noiser
+# Noiser
+
+A noise image generator written in vue 3.
 
 ## Project setup
 ```
