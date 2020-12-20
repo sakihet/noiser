@@ -3,6 +3,7 @@
     <input
       :type="inputType"
       :value="value"
+      :id="inputId"
       @input="$emit('input', $event.target.value)"
     >
   </div>
@@ -18,6 +19,9 @@ export default {
     inputType: {
       type: String,
       required: true
+    },
+    inputId: {
+      type: String
     }
   },
   emits: ['input']

@@ -5,23 +5,31 @@
         :headerText="name"
         :headerDescription="description"
       />
-      <AppInput
+      <InputLabeled
         :value="color"
+        labelName="color"
+        inputId="color"
         inputType="color"
         @input="color = $event"
       />
-      <AppInput
+      <InputLabeled
         :value="threshold"
+        labelName="threshold"
+        inputId="threshold"
         inputType="range"
         @input="threshold = $event"
       />
-      <AppInput
+      <InputLabeled
         :value="height"
+        labelName="height"
+        inputId="height"
         inputType="number"
         @input="height = $event"
       />
-      <AppInput
+      <InputLabeled
         :value="width"
+        labelName="width"
+        inputId="width"
         inputType="number"
         @input="width = $event"
       />
@@ -51,7 +59,7 @@
 import AppAnchor from './components/AppAnchor'
 import AppCanvas from './components/AppCanvas'
 import AppHeader from './components/AppHeader'
-import AppInput from './components/AppInput'
+import InputLabeled from './components/InputLabeled'
 import {name} from '../package.json'
 import {description} from '../package.json'
 import {version} from '../package.json'
@@ -62,7 +70,7 @@ export default {
     AppAnchor,
     AppCanvas,
     AppHeader,
-    AppInput
+    InputLabeled
   },
   data () {
     return {
