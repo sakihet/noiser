@@ -37,7 +37,11 @@
         :width="parseInt(width)"
         @updated="updateDataURL($event)"
       />
-      <a href="https://github.com/sakihet/noiser" target="_blank">github</a>
+      <AppAnchor
+        href="https://github.com/sakihet/noiser"
+        target="_blank"
+        text="github"
+      />
       <p>version: {{ version }}</p>
     </div>
   </div>

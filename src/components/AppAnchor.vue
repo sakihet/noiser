@@ -2,6 +2,7 @@
   <a
     :href="href"
     :download="download"
+    :target="target"
   >{{ text }}</a>
 </template>
 
@@ -16,6 +17,9 @@ export default {
       type: String
     },
     download: {
+      type: String
+    },
+    target: {
       type: String
     }
   }
