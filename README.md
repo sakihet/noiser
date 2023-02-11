@@ -2,6 +2,8 @@
 
 A noise image generator
 
+![noise image](screenshots/image.png)
+
 ## Try it now
 
 [Noiser](https://noiser.sakih.net/)
