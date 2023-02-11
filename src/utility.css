@@ -64,6 +64,9 @@
 .text-right {
   text-align: right;
 }
+.text-small {
+  font-size: 0.75rem;
+}
 .border-solid {
   border-style: solid;
 }

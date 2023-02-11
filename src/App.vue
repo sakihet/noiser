@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive } from 'vue'
+import { version } from '../package.json'
 
 const store = reactive({
   color: "#1abc9c",
@@ -82,6 +83,7 @@ onMounted(() => {
   <div class="layout-center p-4 layout-stack-8">
     <div class="text-center">
       <h1>Noiser</h1>
+      <p class="text-small">v{{ version }}</p>
       <p>A noise image generator</p>
     </div>
     <div class="layout-stack-2">
