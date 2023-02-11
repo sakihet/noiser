@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUpdated, reactive } from 'vue'
+import { onMounted, reactive } from 'vue'
 
 const store = reactive({
   color: "#1abc9c",
@@ -14,22 +14,25 @@ const store = reactive({
 const handleChangeColor = (e: Event) => {
   const elem = e.target as HTMLInputElement
   store.color = elem.value
-  draw()
+  drawTimer()
 }
 const handleChangeThreshold = (e: Event) => {
   const elem = e.target as HTMLInputElement
   store.threshold = Number(elem.value)
-  draw()
+  drawTimer()
 }
 const handleChangeHeight = (e: Event) => {
   const elem = e.target as HTMLInputElement
   store.size.height = Number(elem.value)
-  draw()
+  drawTimer()
 }
 const handleChangeWidth = (e: Event) => {
   const elem = e.target as HTMLInputElement
   store.size.width = Number(elem.value)
-  draw()
+  drawTimer()
+}
+const drawTimer = () => {
+  setTimeout(() => draw(), 100)
 }
 const myrand = (min: number, max: number): number => {
   let r = Math.floor(Math.random() * (max - min) + 1)
@@ -41,8 +44,8 @@ const draw = () => {
   if (cv) {
     const ctx = cv.getContext('2d')
     if (ctx) {
-      ctx.fillStyle = store.color
       ctx.clearRect(0, 0, store.size.width, store.size.height)
+      ctx.fillStyle = store.color
       ctx.fillRect(0, 0, store.size.width, store.size.height)
       const inputImageData = ctx.getImageData(0, 0, store.size.width, store.size.height)
       const inputData = inputImageData.data
@@ -57,7 +60,11 @@ const draw = () => {
       }
       ctx.putImageData(outputImageData, 0, 0)
       generateDataURL()
+    } else {
+      console.log('ctx not found')
     }
+  } else {
+    console.log('cv not found')
   }
 }
 const generateDataURL = () => {
@@ -72,60 +79,98 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="layout-center p-4">
+  <div class="layout-center p-4 layout-stack-8">
     <div class="text-center">
       <h1>Noiser</h1>
       <p>A noise image generator</p>
     </div>
     <div class="layout-stack-2">
-      <div>
-        <input
-          class="h-6"
-          type="color"
-          :value="store.color"
-          @change="handleChangeColor($event)"
-        />
+      <div class="flex-row">
+        <div class="mx-auto">
+          <label class="flex-row">
+            <div class="w-24 py-1 text-right">
+              <span class="px-2">
+                Color
+              </span>
+            </div>
+            <input
+              class="h-6 px-2 w-32"
+              type="color"
+              :value="store.color"
+              @change="handleChangeColor($event)"
+            />
+          </label>
+        </div>
       </div>
-      <div>
-        <input
-          class="h-6"
-          type="range"
-          :value="store.threshold"
-          @change="handleChangeThreshold($event)"
-        />
+      <div class="flex-row">
+        <div class="mx-auto">
+          <label class="flex-row">
+            <div class="w-24 py-1 text-right">
+              <span class="px-2">
+                Threshold
+              </span>
+            </div>
+            <input
+              class="h-6 px-2 w-32"
+              type="range"
+              :value="store.threshold"
+              @change="handleChangeThreshold($event)"
+            />
+          </label>
+        </div>
       </div>
-      <div>
-        <input
-          class="h-6"
-          type="number"
-          :value="store.size.height"
-          @change="handleChangeHeight($event)"
-        />
+      <div class="flex-row">
+        <div class="mx-auto">
+          <label class="flex-row">
+            <div class="w-24 py-1 text-right">
+              <span class="px-2">
+                Height
+              </span>
+            </div>
+            <input
+              class="h-6 px-2 w-32"
+              type="number"
+              :value="store.size.height"
+              @change="handleChangeHeight($event)"
+            />
+          </label>
+        </div>
       </div>
-      <div>
-        <input
-          class="h-6"
-          type="number"
-          :value="store.size.width"
-          @change="handleChangeWidth($event)"
-        />
+      <div class="flex-row">
+        <div class="mx-auto">
+          <label class="flex-row">
+            <div class="w-24 py-1 text-right">
+              <span class="px-2">
+                Width
+              </span>
+            </div>
+            <input
+              class="h-6 px-2 w-32"
+              type="number"
+              :value="store.size.width"
+              @change="handleChangeWidth($event)"
+            />
+          </label>
+        </div>
       </div>
-      <div>
+    </div>
+    <div>
+      <div class="text-center">
         <a
+          class=""
           :href="store.dataURL"
           download="image.png"
         >
           Download
         </a>
       </div>
-      <div>
-        <canvas
-          id="cv"
-          :height="store.size.height"
-          :width="store.size.width"
-          style="border: solid 1px black;"
-        />
-      </div>
+    </div>
+    <div class="text-center">
+      <canvas
+        id="cv"
+        :height="store.size.height"
+        :width="store.size.width"
+      />
     </div>
     <div class="text-center">
       <a href="#">GitHub</a>

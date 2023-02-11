@@ -10,3 +10,9 @@
 .layout-stack-2 > * + * {
   margin-top: 0.5rem;
 }
+.layout-stack-4 > * + * {
+  margin-top: 1rem;
+}
+.layout-stack-8 > * + * {
+  margin-top: 2rem;
+}
