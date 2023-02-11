@@ -2,23 +2,35 @@
 </script>
 
 <template>
-  <div>
-    <div>
+  <div class="layout-center p-4">
+    <div class="text-center">
       <h1>Noiser</h1>
       <p>A noise image generator</p>
     </div>
-    <div>
+    <div class="layout-stack-2">
       <div>
-        <input type="color" />
+        <input
+          class="h-6"
+          type="color"
+        />
       </div>
       <div>
-        <input type="range" />
+        <input
+          class="h-6"
+          type="range"
+        />
       </div>
       <div>
-        <input type="number" />
+        <input
+          class="h-6"
+          type="number"
+        />
       </div>
       <div>
-        <input type="number" />
+        <input
+          class="h-6"
+          type="number"
+        />
       </div>
       <div>
         <a href="#">Download</a>
@@ -31,7 +43,7 @@
         />
       </div>
     </div>
-    <div>
+    <div class="text-center">
       <a href="#">GitHub</a>
     </div>
   </div>
