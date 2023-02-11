@@ -86,7 +86,7 @@ onMounted(() => {
       <p class="text-small">v{{ version }}</p>
       <p>A noise image generator</p>
     </div>
-    <div class="layout-stack-2">
+    <div class="layout-stack-2 text-secondary">
       <div class="flex-row">
         <div class="mx-auto">
           <label class="flex-row">
@@ -96,7 +96,7 @@ onMounted(() => {
               </span>
             </div>
             <input
-              class="h-6 px-2 w-32"
+              class="h-6 px-2 w-32 border-color-default"
               type="color"
               :value="store.color"
               @change="handleChangeColor($event)"
@@ -130,7 +130,7 @@ onMounted(() => {
               </span>
             </div>
             <input
-              class="h-6 px-2 w-32"
+              class="h-6 px-2 w-32 border-solid border-1 border-color-default"
               type="number"
               :value="store.size.height"
               @change="handleChangeHeight($event)"
@@ -147,7 +147,7 @@ onMounted(() => {
               </span>
             </div>
             <input
-              class="h-6 px-2 w-32"
+              class="h-6 px-2 w-32 border-solid border-1 border-color-default"
               type="number"
               :value="store.size.width"
               @change="handleChangeWidth($event)"
@@ -159,7 +159,7 @@ onMounted(() => {
     <div>
       <div class="text-center">
         <a
-          class=""
+          class="px-4 py-2 round bg-button-primary text-button text-decoration-none hover-button round"
           :href="store.dataURL"
           download="image.png"
         >

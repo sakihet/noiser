@@ -55,6 +55,10 @@
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 .text-center {
   text-align: center;
 }
@@ -69,4 +73,34 @@
 }
 .border-solid {
   border-style: solid;
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.text-button {
+  color: var(--color-button-text)
+}
+.border-color-default {
+  border-color: var(--color-border-default);
+}
+.border-1 {
+  border-width: 1px;
+}
+.border-solid {
+  border-style: solid;
+}
+.round {
+  border-radius: 0.25rem;
+}
+.round-2 {
+  border-radius: 0.5rem;
+}
+.bg-button-primary {
+  background-color: var(--color-button-primary);
+}
+.text-decoration-none {
+  text-decoration: none;
+}
+.hover-button:hover {
+  background-color: var(--color-hover-button);
 }
