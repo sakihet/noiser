@@ -175,7 +175,7 @@ onMounted(() => {
       />
     </div>
     <div class="text-center">
-      <a href="#">GitHub</a>
+      <a href="https://github.com/sakihet/noiser">GitHub</a>
     </div>
   </div>
 </template>
