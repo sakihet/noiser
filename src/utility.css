@@ -1,9 +1,16 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 .flex-row {
   display: flex;
   flex-direction: row;
 }
 .h-6 {
   height: 1.5rem;
+}
+.h-8 {
+  height: 2rem;
 }
 .w-16 {
   width: 4rem;
